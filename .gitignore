@@ -1,0 +1,5 @@
+node_modules
+dist
+_review_pages
+_thumbs
+.DS_Store
