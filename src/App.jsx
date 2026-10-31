@@ -20,6 +20,31 @@ function Layout() {
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
+    const main = document.querySelector("main");
+    if (!main) return undefined;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
+    const nodes = [...main.querySelectorAll("section:not(.hero)")];
+    const seen = nodes.filter((node) => node.getBoundingClientRect().top < window.innerHeight * 0.92);
+    const waiting = nodes.filter((node) => !seen.includes(node));
+    nodes.forEach((node) => node.classList.add("reveal"));
+    const frame = requestAnimationFrame(() => {
+      seen.forEach((node) => node.classList.add("is-in"));
+    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-in");
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.14, rootMargin: "0px 0px -40px 0px" },
+    );
+    waiting.forEach((node) => observer.observe(node));
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
   }, [pathname]);
 
   return (

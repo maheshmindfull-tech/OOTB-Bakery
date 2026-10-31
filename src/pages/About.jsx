@@ -15,7 +15,7 @@ export default function About() {
   useTitle("About");
   return (
     <>
-      <PageHero crumb="About" eyebrow="About us" title="A nut-free bakery built for private label.">
+      <PageHero full eyebrow="About us" title="A nut-free bakery built for private label." image="/media/images/plant.jpg">
         OOTB Bakery makes baked goods for other people's brands, and runs the whole job in one building at 288 Judson Street in Etobicoke: mixing, baking, cooling, packing, storage and dispatch.
       </PageHero>
 
@@ -64,7 +64,7 @@ export default function About() {
               ["Nut-free by design", "Keeping peanuts and tree nuts out of the building is a harder commitment than managing them with cleaning and scheduling. It is also the only version a buyer can rely on."],
               ["One building, one set of records", "Baking, packing, storage and dispatch happen on one site under one food safety program. Fewer handoffs means fewer places for your order to stall, and fewer people to chase when it does."],
             ].map(([title, body]) => (
-              <article key={title} className="rounded-3xl border border-line bg-paper p-6">
+              <article key={title} className="h-full rounded-3xl border border-line bg-paper p-6">
                 <h3 className="text-lg font-bold">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{body}</p>
               </article>

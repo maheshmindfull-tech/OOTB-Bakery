@@ -24,12 +24,12 @@ export default function Contact() {
     const lines = [];
     data.forEach((value, key) => lines.push(`${key}: ${value}`));
     setSent(true);
-    window.location.href = `mailto:info@ootbinc.com?subject=${encodeURIComponent("Quote request")}&body=${encodeURIComponent(lines.join("\n"))}`;
+    window.location.href = `mailto:kvirk@ootbinc.com?subject=${encodeURIComponent("Quote request")}&body=${encodeURIComponent(lines.join("\n"))}`;
   }
 
   return (
     <>
-      <PageHero crumb="Request a Quote" eyebrow="Request a quote" title="Tell us what you want to make.">
+      <PageHero eyebrow="Request a quote" title="Tell us what you want to make." image="/media/images/cookies-stack.jpg">
         The more you can tell us about the product, the format and the volume, the more useful the first reply will be. If you are not sure about some of it, send what you have and we will work it out together.
       </PageHero>
 
@@ -40,37 +40,37 @@ export default function Contact() {
             <p className="mt-1 text-sm text-muted">Fields marked with an asterisk are required.</p>
             <div className="mt-6 grid gap-4 md:grid-cols-2">
               <label className="text-sm font-semibold">Name *
-                <input name="Name" required className="mt-1 w-full rounded-xl border border-line px-3 py-2.5 font-normal" />
+                <input name="Name" required className="mt-1 w-full rounded-xl border border-line px-3 py-2.5 text-base font-normal" />
               </label>
               <label className="text-sm font-semibold">Company *
-                <input name="Company" required className="mt-1 w-full rounded-xl border border-line px-3 py-2.5 font-normal" />
+                <input name="Company" required className="mt-1 w-full rounded-xl border border-line px-3 py-2.5 text-base font-normal" />
               </label>
               <label className="text-sm font-semibold">Email *
-                <input name="Email" type="email" required className="mt-1 w-full rounded-xl border border-line px-3 py-2.5 font-normal" />
+                <input name="Email" type="email" required className="mt-1 w-full rounded-xl border border-line px-3 py-2.5 text-base font-normal" />
               </label>
               <label className="text-sm font-semibold">Phone *
-                <input name="Phone" type="tel" required className="mt-1 w-full rounded-xl border border-line px-3 py-2.5 font-normal" />
+                <input name="Phone" type="tel" required className="mt-1 w-full rounded-xl border border-line px-3 py-2.5 text-base font-normal" />
               </label>
               <label className="text-sm font-semibold">Business type *
-                <select name="Business type" required defaultValue={topic} key={topic} className="mt-1 w-full rounded-xl border border-line bg-white px-3 py-2.5 font-normal">
+                <select name="Business type" required defaultValue={topic} key={topic} className="mt-1 w-full rounded-xl border border-line bg-white px-3 py-2.5 text-base font-normal">
                   <option value="">Choose one</option>
                   {industries.map((item) => <option key={item.title}>{item.title}</option>)}
                   <option>Other</option>
                 </select>
               </label>
               <label className="text-sm font-semibold">Product category *
-                <select name="Product category" required defaultValue={product} key={product} className="mt-1 w-full rounded-xl border border-line bg-white px-3 py-2.5 font-normal">
+                <select name="Product category" required defaultValue={product} key={product} className="mt-1 w-full rounded-xl border border-line bg-white px-3 py-2.5 text-base font-normal">
                   <option value="">Choose one</option>
                   {products.map((item) => <option key={item.category}>{item.category}</option>)}
                   <option>Other / not on the list</option>
                 </select>
               </label>
               <label className="text-sm font-semibold">Estimated volume
-                <input name="Estimated volume" placeholder="For example, units or cases" className="mt-1 w-full rounded-xl border border-line px-3 py-2.5 font-normal" />
+                <input name="Estimated volume" placeholder="For example, units or cases" className="mt-1 w-full rounded-xl border border-line px-3 py-2.5 text-base font-normal" />
                 <span className="mt-1 block text-xs font-normal text-muted">A rough range is fine. Say so if you do not know yet.</span>
               </label>
               <label className="text-sm font-semibold">Target launch date
-                <input name="Target launch date" type="date" className="mt-1 w-full rounded-xl border border-line px-3 py-2.5 font-normal" />
+                <input name="Target launch date" type="date" className="mt-1 w-full rounded-xl border border-line px-3 py-2.5 text-base font-normal" />
                 <span className="mt-1 block text-xs font-normal text-muted">Even an approximate date helps us plan.</span>
               </label>
             </div>
@@ -85,10 +85,10 @@ export default function Contact() {
               </div>
             </fieldset>
             <label className="mt-4 block text-sm font-semibold">Tell us about the product *
-              <textarea name="Product" required rows="5" placeholder="What is it, what format does it need to ship in, and what problem are you trying to solve? A reference product helps." className="mt-1 w-full rounded-xl border border-line px-3 py-2.5 font-normal" />
+              <textarea name="Product" required rows="5" placeholder="What is it, what format does it need to ship in, and what problem are you trying to solve? A reference product helps." className="mt-1 w-full rounded-xl border border-line px-3 py-2.5 text-base font-normal" />
             </label>
             <p className="mt-4 text-sm text-muted">We use what you send here to answer your enquiry. See our <Link to="/privacy" className="font-semibold text-copper underline">privacy notice</Link>.</p>
-            {sent && <p className="mt-4 rounded-2xl bg-cream px-4 py-3 text-sm">Your email app should open with this enquiry addressed to info@ootbinc.com. If it does not, send the same details there or call (905) 291-1013.</p>}
+            {sent && <p className="mt-4 rounded-2xl bg-cream px-4 py-3 text-sm">Your email app should open with this enquiry addressed to kvirk@ootbinc.com. If it does not, send the same details there or call (905) 291-1013.</p>}
             <Button type="submit" className="mt-5">Send request <span aria-hidden="true">→</span></Button>
           </form>
 
@@ -123,7 +123,7 @@ export default function Contact() {
                 "Whether the product must be nut-free",
               ].map((item) => <li key={item}><span className="mr-2 text-copper">•</span>{item}</li>)}
             </ul>
-            <p className="mt-4 text-sm text-muted">Looking for a job rather than a quote? The <Link to="/careers" className="font-semibold text-copper underline">careers page</Link> has the application form.</p>
+            <p className="mt-4 text-sm text-muted">Looking for a job rather than a quote? See the <Link to="/careers" className="font-semibold text-copper underline">careers page</Link>.</p>
           </aside>
         </Container>
       </section>

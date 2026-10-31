@@ -11,11 +11,13 @@ function Item({ item }) {
         <span className="font-bold">{item.q}</span>
         <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-copper text-white">{open ? "–" : "+"}</span>
       </button>
-      {open && (
-        <div className="mt-3 max-w-3xl space-y-3 text-sm leading-relaxed text-muted">
-          {item.a.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+      <div inert={open ? undefined : true} className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
+        <div className="overflow-hidden">
+          <div className="max-w-3xl space-y-3 pt-3 text-sm leading-relaxed text-muted">
+            {item.a.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }
@@ -24,7 +26,7 @@ export default function Faq() {
   useTitle("FAQ");
   return (
     <>
-      <PageHero crumb="FAQ" eyebrow="FAQ" title="The questions people actually ask.">
+      <PageHero full eyebrow="FAQ" title="The questions people actually ask." image="/media/images/biscotti.jpg">
         Grouped by where you are in the process. Where the real answer depends on your product we say so, instead of publishing a number that would be wrong for most of the people reading it.
       </PageHero>
       <section className="bg-cream py-16 md:py-20">

@@ -18,7 +18,7 @@ export default function Products() {
 
   return (
     <>
-      <PageHero crumb="Products" eyebrow="Products" title="What we bake, and how it ships.">
+      <PageHero full eyebrow="Products" title="What we bake, and how it ships." image="/media/images/cookies.jpg">
         Every product below can be made under your brand, in the format your channel actually needs. Formats are the part most brands underestimate, so they are listed for each product instead of buried in a quote.
       </PageHero>
 
@@ -37,7 +37,7 @@ export default function Products() {
         {visible.map((product) => (
           <section key={product.id} id={product.id} className="border-t border-line/80 py-12">
             <Container className={`grid items-center gap-8 lg:grid-cols-2 ${product.flip ? "lg:[&>*:first-child]:order-2" : ""}`}>
-              <Media image={product.image} alt={product.title} className="h-64 md:h-80" />
+              <Media image={product.image} alt={product.title} className="h-72 w-full md:h-[22rem]" />
               <div>
                 <p className="text-[11px] font-semibold tracking-[0.16em] text-eyebrow uppercase">{product.group}</p>
                 <h2 className="mt-2 text-3xl font-extrabold tracking-tight">{product.title}</h2>

@@ -17,6 +17,7 @@ export default function Equipment() {
   const { hash } = useLocation();
   const [filter, setFilter] = useState("all");
   const [open, setOpen] = useState(null);
+  const [photo, setPhoto] = useState(null);
   const visible = clips.filter((clip) => filter === "all" || clip.tags === filter);
 
   useEffect(() => {
@@ -25,9 +26,18 @@ export default function Equipment() {
     if (clip) setOpen(clip);
   }, [hash]);
 
+  useEffect(() => {
+    if (!photo) return undefined;
+    const onKey = (event) => {
+      if (event.key === "Escape") setPhoto(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [photo]);
+
   return (
     <>
-      <PageHero crumb="Machines in Action" eyebrow="Machines in action" title="What runs on the floor.">
+      <PageHero full eyebrow="Machines in action" title="What runs on the floor." image="/media/images/machines/cookie-depositor.jpg">
         The equipment at 288 Judson Street, grouped by the job it does. Below it, short clips by process. Click any clip to open it full size.
       </PageHero>
 
@@ -38,14 +48,31 @@ export default function Equipment() {
           <p className="mt-4 max-w-2xl text-muted">Machines are listed by what they do rather than by brand, because the control around a machine matters more to your product than the name on it.</p>
           <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {equipmentGroups.map((group) => (
-              <article key={group.n} className="rounded-3xl border border-line bg-paper p-6">
+              <article key={group.n} className="flex h-full flex-col rounded-3xl border border-line bg-paper p-6">
                 <p className="text-sm font-bold text-copper">{group.n}</p>
                 <h3 className="mt-1 text-lg font-bold">{group.title}</h3>
                 <ul className="mt-4 divide-y divide-line">
-                  {group.items.map(([name, body]) => (
-                    <li key={name} className="py-3">
-                      <p className="text-sm font-bold">{name}</p>
-                      <p className="mt-1 text-sm text-muted">{body}</p>
+                  {group.items.map((item) => (
+                    <li key={item.name} className="flex items-start gap-3 py-3">
+                      <button
+                        type="button"
+                        onClick={() => setPhoto(item)}
+                        className="group shrink-0 overflow-hidden rounded-2xl"
+                        aria-label={`View ${item.name}`}
+                      >
+                        <img
+                          src={item.image}
+                          alt=""
+                          width="72"
+                          height="72"
+                          loading="lazy"
+                          className="h-[72px] w-[72px] object-cover transition duration-500 group-hover:scale-105"
+                        />
+                      </button>
+                      <div className="min-w-0">
+                        <p className="text-sm font-bold">{item.name}</p>
+                        <p className="mt-1 text-sm text-muted">{item.body}</p>
+                      </div>
                     </li>
                   ))}
                 </ul>
@@ -72,15 +99,15 @@ export default function Equipment() {
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {visible.map((clip) => (
-              <article key={clip.id} id={clip.id} className="overflow-hidden rounded-[22px] border border-line bg-paper">
+              <article key={clip.id} id={clip.id} className="flex h-full flex-col overflow-hidden rounded-[22px] border border-line bg-paper">
                 <button type="button" className="block w-full text-left" onClick={() => setOpen(clip)}>
-                  <Media image={clip.image} alt={clip.title} label={clip.kicker} play className="h-44 rounded-none" />
+                  <Media image={clip.image} alt={clip.title} label={clip.kicker} play className="h-48 rounded-none" />
                 </button>
-                <div className="p-5">
+                <div className="flex flex-1 flex-col p-5">
                   <h3 className="font-bold">{clip.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted">{clip.summary}</p>
-                  <button type="button" onClick={() => setOpen(clip)} className="mt-4 text-xs font-semibold tracking-[0.12em] text-copper uppercase">
-                    Watch clip →
+                  <button type="button" onClick={() => setOpen(clip)} className="group mt-auto pt-4 text-left text-xs font-semibold tracking-[0.12em] text-copper uppercase">
+                    Watch clip <span aria-hidden="true">→</span>
                   </button>
                 </div>
               </article>
@@ -114,9 +141,26 @@ export default function Equipment() {
         Send the product, the format and the volume. We will tell you whether it runs on this equipment and what we would need to change.
       </CtaBand>
 
+      {photo && (
+        <div
+          className="overlay-in fixed inset-0 z-50 grid place-items-center bg-black/70 p-4"
+          role="dialog"
+          aria-modal="true"
+          aria-label={photo.name}
+          onClick={() => setPhoto(null)}
+        >
+          <img
+            src={photo.image}
+            alt={photo.name}
+            className="pop-in aspect-square w-full max-w-[min(90vw,32rem)] rounded-[28px] object-cover shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          />
+        </div>
+      )}
+
       {open && (
-        <div className="fixed inset-0 z-50 grid place-items-center bg-black/70 p-4" role="dialog" aria-modal="true" aria-labelledby="clip-title">
-          <div className="max-h-[90vh] w-full max-w-lg overflow-auto rounded-[28px] bg-paper">
+        <div className="overlay-in fixed inset-0 z-50 grid place-items-center bg-black/70 p-4" role="dialog" aria-modal="true" aria-labelledby="clip-title">
+          <div className="pop-in max-h-[90vh] w-full max-w-lg overflow-auto rounded-[28px] bg-paper shadow-2xl">
             <video
               key={open.id}
               src={open.video}

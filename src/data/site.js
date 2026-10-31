@@ -8,6 +8,7 @@ export const certs = [
 ];
 
 const photo = (name) => `/media/images/${name}`;
+const machine = (name) => photo(`machines/${name}`);
 const film = (name) => `/media/videos/${name}`;
 
 export const clips = [
@@ -84,66 +85,66 @@ export const equipmentGroups = [
     n: "01",
     title: "Mixing and blending",
     items: [
-      ["Planetary floor mixers", "Doughs, batters and fillings, mixed in batches."],
-      ["High shear mixers", "Smooth batters, fillings and liquid blends."],
-      ["V-blender", "Dry ingredients and powders, blended evenly."],
-      ["Grinder", "Dry ingredients ground to size in-house."],
+      { name: "Planetary floor mixers", body: "Doughs, batters and fillings, mixed in batches.", image: machine("planetary-mixer.jpg") },
+      { name: "High shear mixers", body: "Smooth batters, fillings and liquid blends.", image: machine("high-shear-mixer.jpg") },
+      { name: "V-blender", body: "Dry ingredients and powders, blended evenly.", image: machine("v-blender.jpg") },
+      { name: "Grinder", body: "Dry ingredients ground to size in-house.", image: machine("grinder.jpg") },
     ],
   },
   {
     n: "02",
     title: "Depositing and portioning",
     items: [
-      ["Cookie depositor", "Cookie dough deposited or wire cut in even rows."],
-      ["Vacuum filler and portioner", "Dough and batter portioned by weight."],
+      { name: "Cookie depositor", body: "Cookie dough deposited or wire cut in even rows.", image: machine("cookie-depositor.jpg") },
+      { name: "Vacuum filler and portioner", body: "Dough and batter portioned by weight.", image: machine("vacuum-filler.jpg") },
     ],
   },
   {
     n: "03",
     title: "Baking",
-    items: [["Commercial bakery ovens", "Baked to the time and temperature set for each product."]],
+    items: [{ name: "Commercial bakery ovens", body: "Baked to the time and temperature set for each product.", image: machine("bakery-oven.jpg") }],
   },
   {
     n: "04",
     title: "Weighing and bagging",
     items: [
-      ["Multihead weigher with vertical form fill seal bagger", "Portions weighed, then bagged and sealed from roll film."],
-      ["Stand-up pouch machine", "Stand-up pouches filled and sealed."],
+      { name: "Multihead weigher with vertical form fill seal bagger", body: "Portions weighed, then bagged and sealed from roll film.", image: machine("multihead-bagger.jpg") },
+      { name: "Stand-up pouch machine", body: "Stand-up pouches filled and sealed.", image: machine("pouch-machine.jpg") },
     ],
   },
   {
     n: "05",
     title: "Powder filling",
-    items: [["Powder filling machines", "Powders dosed by weight into jars, tubs, pouches or bags."]],
+    items: [{ name: "Powder filling machines", body: "Powders dosed by weight into jars, tubs, pouches or bags.", image: machine("powder-filler.jpg") }],
   },
   {
     n: "06",
     title: "Wrapping and sealing",
     items: [
-      ["Flow wrappers", "Crackers, bars and cookies in individual flow packs."],
-      ["Shrink wrapper and heat tunnel", "Multipacks and trays shrink wrapped."],
-      ["Container sealer", "Tubs and containers lidded and heat sealed."],
+      { name: "Flow wrappers", body: "Crackers, bars and cookies in individual flow packs.", image: machine("flow-wrapper.jpg") },
+      { name: "Shrink wrapper and heat tunnel", body: "Multipacks and trays shrink wrapped.", image: machine("shrink-tunnel.jpg") },
+      { name: "Container sealer", body: "Tubs and containers lidded and heat sealed.", image: machine("container-sealer.jpg") },
     ],
   },
   {
     n: "07",
     title: "Coding and inspection",
     items: [
-      ["Code printer", "Lot number and best before date on every pack."],
-      ["Checkweigher", "Every pack weighed in line. Off-weight packs rejected."],
-      ["X-ray inspection", "Finds foreign material such as metal, glass and stone, including inside foil packs."],
-      ["Metal detector", "Inline metal detection, challenged with test pieces through the run."],
+      { name: "Code printer", body: "Lot number and best before date on every pack.", image: machine("code-printer.jpg") },
+      { name: "Checkweigher", body: "Every pack weighed in line. Off-weight packs rejected.", image: machine("checkweigher.jpg") },
+      { name: "X-ray inspection", body: "Finds foreign material such as metal, glass and stone, including inside foil packs.", image: machine("xray-inspection.jpg") },
+      { name: "Metal detector", body: "Inline metal detection, challenged with test pieces through the run.", image: machine("metal-detector.jpg") },
     ],
   },
   {
     n: "08",
     title: "End of line",
-    items: [["Strapping machine", "Cases and bundles strapped for shipping."]],
+    items: [{ name: "Strapping machine", body: "Cases and bundles strapped for shipping.", image: machine("strapping-machine.jpg") }],
   },
   {
     n: "09",
     title: "Cotton candy",
-    items: [["Cotton candy machines, large and small", "Floss spun, packed into tubs and sealed."]],
+    items: [{ name: "Cotton candy machines, large and small", body: "Floss spun, packed into tubs and sealed.", image: machine("cotton-candy-machine.jpg") }],
   },
 ];
 

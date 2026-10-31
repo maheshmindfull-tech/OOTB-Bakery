@@ -28,7 +28,7 @@ export default function FoodSafety() {
   useTitle("Food Safety");
   return (
     <>
-      <PageHero crumb="Food Safety" eyebrow="Food safety" title="Nut-free, audited, and written down.">
+      <PageHero full eyebrow="Food safety" title="Nut-free, audited, and written down." image="/media/images/kitchen.jpg">
         Food safety is the part of a co-manufacturing relationship that only matters on the worst day. These are the schemes we work to, the nut-free program behind the claim, and the checks between a bag of flour arriving and a pallet leaving.
       </PageHero>
 
@@ -41,7 +41,7 @@ export default function FoodSafety() {
           </p>
           <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {certs.map((cert) => (
-              <article key={cert.title} className="flex gap-4 rounded-3xl border border-line bg-paper p-5">
+              <article key={cert.title} className="flex h-full gap-4 rounded-3xl border border-line bg-paper p-5">
                 <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-ink px-1 text-center text-[10px] leading-tight font-bold whitespace-pre-line text-white">{cert.short}</span>
                 <div>
                   <h3 className="font-bold">{cert.title}</h3>
@@ -85,7 +85,7 @@ export default function FoodSafety() {
           <p className="mt-4 max-w-2xl text-muted">Ten points where product is checked, held or released. None of it is exotic. What matters is that it happens on every run and that there is a record afterwards.</p>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {checks.map(([n, title, body]) => (
-              <article key={n} className="rounded-3xl border border-line bg-paper p-6">
+              <article key={n} className="h-full rounded-3xl border border-line bg-paper p-6">
                 <p className="text-sm font-bold text-copper">{n}</p>
                 <h3 className="mt-2 font-bold">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{body}</p>
@@ -102,7 +102,7 @@ export default function FoodSafety() {
           <p className="mt-4 max-w-2xl text-white/65">Not whether they have ever had a recall. Whether they could run one properly tomorrow.</p>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {trace.map(([title, body]) => (
-              <article key={title} className="rounded-3xl border border-white/10 bg-white/5 p-6">
+              <article key={title} className="h-full rounded-3xl border border-white/10 bg-white/5 p-6">
                 <h3 className="font-bold">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-white/65">{body}</p>
               </article>

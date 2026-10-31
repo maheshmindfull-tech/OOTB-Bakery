@@ -18,7 +18,7 @@ export default function Services() {
 
   return (
     <>
-      <PageHero crumb="Services" eyebrow="Private label and co-manufacturing" title="Six ways to use the bakery.">
+      <PageHero full eyebrow="Private label and co-manufacturing" title="Six ways to use the bakery." image="/media/images/dough.jpg">
         Most customers use more than one of these. They sit under one roof because a baked product almost never stops at the oven, and every extra supplier between the oven and the shelf is another place your launch date can slip.
       </PageHero>
 
@@ -39,7 +39,7 @@ export default function Services() {
             ))}
           </div>
 
-          <article id={current.id} className="grid items-start gap-8 py-10 lg:grid-cols-2">
+          <article id={current.id} className="grid items-center gap-8 py-10 lg:grid-cols-2">
             <div>
               <Eyebrow>{current.eyebrow}</Eyebrow>
               <h2 className="text-3xl font-extrabold tracking-[-0.03em] md:text-4xl">{current.title}</h2>
@@ -52,7 +52,7 @@ export default function Services() {
               </div>
             </div>
             <div className="space-y-4">
-              <Media key={current.id} image={current.image} video={current.video} label={current.eyebrow} alt={current.tab} className="h-64" />
+              <Media key={current.id} image={current.image} video={current.video} label={current.eyebrow} alt={current.tab} className="h-72 md:h-80" />
               <div className="rounded-3xl bg-[#f3ece3] p-6">
                 <p className="text-[11px] font-semibold tracking-[0.16em] text-eyebrow uppercase">What is included</p>
                 <ul className="mt-3 space-y-2 text-sm">
@@ -79,7 +79,7 @@ export default function Services() {
               ["One set of records", "Batch records, allergen statements, sanitation checks and shipping records all sit in one place, so tracing a problem does not mean emailing four companies."],
               ["One point of contact", "When something changes, and it will, you are talking to the people who can change all of it, not one link in a chain."],
             ].map(([title, body]) => (
-              <article key={title} className="rounded-3xl border border-white/10 bg-white/5 p-6">
+              <article key={title} className="h-full rounded-3xl border border-white/10 bg-white/5 p-6">
                 <h3 className="font-bold">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-white/65">{body}</p>
               </article>

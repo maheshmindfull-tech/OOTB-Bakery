@@ -22,7 +22,7 @@ const buttonStyles = {
 };
 
 export function Button({ to, href, children, variant = "primary", className = "", type = "button", onClick }) {
-  const cls = `inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition ${buttonStyles[variant]} ${className}`;
+  const cls = `group inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition duration-200 hover:-translate-y-0.5 ${buttonStyles[variant]} ${className}`;
   if (to) return <Link to={to} className={cls}>{children}</Link>;
   if (href) return <a href={href} className={cls}>{children}</a>;
   return (
@@ -34,9 +34,9 @@ export function Button({ to, href, children, variant = "primary", className = ""
 
 export function TextLink({ to, children, className = "" }) {
   return (
-    <Link to={to} className={`inline-flex items-center gap-1.5 text-sm font-semibold text-copper hover:text-copper-deep ${className}`}>
+    <Link to={to} className={`group inline-flex items-center gap-1.5 text-sm font-semibold text-copper transition hover:text-copper-deep ${className}`}>
       {children}
-      <span aria-hidden="true">→</span>
+      <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span>
     </Link>
   );
 }
@@ -88,11 +88,11 @@ export function Media({ icon = "mixer", label, play = false, image, video, alt =
   }, [video]);
 
   return (
-    <div className={`relative overflow-hidden rounded-[22px] bg-[#24160f] ${className}`}>
+    <div className={`group relative overflow-hidden rounded-[22px] bg-[#24160f] ${className}`}>
       {video && !play ? (
         <video
           ref={videoRef}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
           src={video}
           poster={image}
           muted
@@ -101,7 +101,7 @@ export function Media({ icon = "mixer", label, play = false, image, video, alt =
           autoPlay
         />
       ) : image ? (
-        <img src={image} alt={alt} className="absolute inset-0 h-full w-full object-cover" />
+        <img src={image} alt={alt} className="absolute inset-0 h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105" />
       ) : (
         <>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_18%,rgba(214,140,70,0.55),transparent_42%),radial-gradient(circle_at_78%_82%,rgba(70,24,10,0.75),transparent_46%),linear-gradient(160deg,#3a2418,#1a100c)]" />
@@ -117,7 +117,7 @@ export function Media({ icon = "mixer", label, play = false, image, video, alt =
       )}
       {play && (
         <span className="absolute inset-0 z-10 grid place-items-center bg-black/15">
-          <span className="grid h-14 w-14 place-items-center rounded-full bg-white text-ink shadow-lg">
+          <span className="grid h-14 w-14 place-items-center rounded-full bg-white text-ink shadow-lg transition duration-300 group-hover:scale-110">
             <svg viewBox="0 0 18 18" className="ml-0.5 h-4 w-4" fill="currentColor" aria-hidden="true">
               <path d="M6 3.5v11l9-5.5-9-5.5z" />
             </svg>
@@ -146,21 +146,26 @@ export function CtaBand({ eyebrow = "Next step", title, children, actions }) {
   );
 }
 
-export function PageHero({ crumb, eyebrow, title, children }) {
+export function HeroShell({ image = "/media/images/cookies-hero.jpg", className = "", full = false, children }) {
   return (
-    <section className="relative overflow-hidden bg-ink text-white">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(820px_380px_at_92%_0%,rgba(170,74,30,0.38),transparent_58%)]" />
-      <Container className="relative pt-10 pb-16 md:pt-12 md:pb-20">
-        <p className="mb-8 text-sm text-white/45">
-          <Link to="/" className="hover:text-white">Home</Link>
-          <span className="px-2">/</span>
-          {crumb}
-        </p>
-        <Eyebrow>{eyebrow}</Eyebrow>
-        <h1 className="max-w-4xl text-[2.65rem] leading-[1.02] font-extrabold tracking-[-0.035em] md:text-6xl">{title}</h1>
-        <div className="mt-6 max-w-2xl text-base leading-relaxed text-white/70 md:text-[1.05rem]">{children}</div>
+    <section className={`hero relative flex flex-col items-start justify-start overflow-hidden bg-ink text-white ${full ? "min-h-[calc(100svh-87px)]" : ""}`}>
+      <img src={image} alt="" className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-[52%] object-cover lg:block" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,#14110e_0%,#14110e_46%,rgba(20,17,14,0.72)_68%,rgba(20,17,14,0.28)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_520px_at_88%_42%,rgba(176,78,28,0.28),transparent_58%)]" />
+      <Container className={`hero-copy relative w-full ${full ? "pt-12 pb-16 md:pt-16 md:pb-24" : "pt-16 pb-20 md:pt-24 md:pb-28"} ${className}`}>
+        {children}
       </Container>
     </section>
+  );
+}
+
+export function PageHero({ eyebrow, title, image, full = false, children }) {
+  return (
+    <HeroShell image={image} full={full}>
+      <Eyebrow>{eyebrow}</Eyebrow>
+      <h1 className="max-w-3xl text-[3rem] leading-[0.98] font-extrabold tracking-[-0.04em] md:text-[4.6rem]">{title}</h1>
+      <div className="mt-6 max-w-xl text-base leading-relaxed text-white/70 md:text-lg">{children}</div>
+    </HeroShell>
   );
 }
 
@@ -170,7 +175,7 @@ export function Pill({ children, active, onClick }) {
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className={`rounded-full px-4 py-2 text-sm font-semibold transition ${
+      className={`rounded-full px-4 py-2 text-sm font-semibold transition duration-200 ${
         active ? "bg-ink text-white" : "border border-line bg-paper text-ink hover:border-ink/20"
       }`}
     >

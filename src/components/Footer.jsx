@@ -39,7 +39,7 @@ export default function Footer() {
     <footer className="bg-ink text-white">
       <div className="mx-auto grid max-w-[1180px] gap-10 px-5 py-14 md:px-8 md:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
         <div>
-          <Logo />
+          <Logo className="h-16" />
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-white/60">
             Certified nut-free contract bakery and private label manufacturer at 288 Judson Street in Etobicoke, Ontario. Recipe to retail shelf, under one roof.
           </p>

@@ -17,19 +17,26 @@ const links = [
 
 export default function Header() {
   const { pathname } = useLocation();
-  const light = pathname === "/privacy";
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className={`sticky top-0 z-40 ${light ? "bg-[#f3f0ea] text-ink" : "bg-ink text-white"}`}>
+    <header className={`sticky top-0 z-40 bg-ink text-white transition-shadow duration-300 ${scrolled ? "shadow-[0_10px_30px_rgba(20,17,14,0.18)]" : ""}`}>
       <div className="h-[3px] bg-copper" />
-      <div className="mx-auto flex max-w-[1280px] items-center gap-4 px-5 py-3.5 md:px-6">
+      <div className="mx-auto flex max-w-[1280px] items-center gap-4 px-5 py-2 md:px-6">
         <NavLink to="/" className="shrink-0" aria-label="OOTB Bakery home">
-          <Logo light={light} />
+          <Logo />
         </NavLink>
         <nav className="ml-auto hidden items-center gap-1 xl:flex" aria-label="Primary">
           {links.map((link) => (
@@ -39,13 +46,7 @@ export default function Header() {
               end={link.end}
               className={({ isActive }) =>
                 `rounded-full px-3 py-1.5 text-[13.5px] font-medium transition ${
-                  isActive
-                    ? light
-                      ? "bg-ink/8 text-ink"
-                      : "bg-white/10 text-white"
-                    : light
-                      ? "text-ink/75 hover:text-ink"
-                      : "text-white/75 hover:text-white"
+                  isActive ? "bg-white/10 text-white" : "text-white/75 hover:text-white"
                 }`
               }
             >
@@ -58,7 +59,7 @@ export default function Header() {
         </div>
         <button
           type="button"
-          className={`ml-auto grid h-10 w-10 place-items-center rounded-full border xl:hidden ${light ? "border-ink/15" : "border-white/15"}`}
+          className="ml-auto grid h-10 w-10 place-items-center rounded-full border border-white/15 xl:hidden"
           aria-expanded={open}
           aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((value) => !value)}
@@ -69,7 +70,7 @@ export default function Header() {
         </button>
       </div>
       {open && (
-        <nav className={`border-t px-5 py-4 xl:hidden ${light ? "border-ink/10 bg-[#f3f0ea]" : "border-white/10 bg-ink"}`} aria-label="Mobile">
+        <nav className="border-t border-white/10 bg-ink px-5 py-4 xl:hidden" aria-label="Mobile">
           <div className="flex flex-col gap-1">
             {links.map((link) => (
               <NavLink key={link.to} to={link.to} end={link.end} className="rounded-xl px-3 py-2.5 text-sm font-medium">
