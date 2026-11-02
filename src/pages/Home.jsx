@@ -250,23 +250,73 @@ export default function Home() {
           </div>
         </Container>
         {detail && (
-          <div className="overlay-in fixed inset-0 z-50 grid place-items-center bg-black/70 p-4" role="dialog" aria-modal="true" aria-label={detail.title} onClick={() => setDetail(null)}>
-            <article className="pop-in grid max-h-[92vh] w-[min(920px,calc(100vw-2rem))] overflow-hidden bg-paper shadow-2xl sm:h-[min(520px,86vh)] sm:grid-cols-2" onClick={(event) => event.stopPropagation()}>
-              <img src={detail.image} alt="" className="h-40 w-full object-cover sm:h-full" />
-              <div className="flex flex-col justify-center overflow-hidden px-5 py-5 sm:h-full sm:px-8 sm:py-6">
-                <span className="grid h-11 w-11 place-items-center rounded-2xl bg-[#f8ece6] text-copper">
-                  <Icon name={detail.icon} />
-                </span>
-                <h3 className="mt-4 text-2xl font-extrabold tracking-tight">{detail.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">{detail.body}</p>
+          <div
+            className="overlay-in fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-3.5 backdrop-blur-sm sm:p-6"
+            role="dialog"
+            aria-modal="true"
+            aria-label={detail.title}
+            onClick={() => setDetail(null)}
+          >
+            <article
+              className="pop-in relative flex max-h-[88vh] w-full max-w-[460px] flex-col overflow-hidden rounded-[26px] border border-white/10 bg-paper shadow-2xl sm:max-h-[540px] sm:max-w-3xl sm:grid sm:grid-cols-2 sm:rounded-[32px]"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setDetail(null)}
+                className="absolute top-3 right-3 z-30 grid h-9 w-9 place-items-center rounded-full bg-black/60 text-white backdrop-blur-md shadow-md border border-white/20 transition hover:bg-black/80 hover:scale-105 active:scale-95 sm:top-4 sm:right-4 sm:bg-stone-200/90 sm:text-ink sm:border-line sm:hover:bg-stone-300"
+                aria-label="Close"
+              >
+                <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+                  <path d="M3.5 3.5l9 9M12.5 3.5l-9 9" />
+                </svg>
+              </button>
+
+              <div className="relative h-44 shrink-0 sm:h-full sm:min-h-full">
+                <img src={detail.image} alt={detail.title} className="h-full w-full object-cover" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 sm:hidden" />
+              </div>
+
+              <div className="flex flex-1 flex-col overflow-y-auto p-5 sm:p-7 md:p-8">
+                <div className="flex items-center gap-3.5">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#f8ece6] text-copper shadow-sm">
+                    <Icon name={detail.icon} className="h-5 w-5" />
+                  </span>
+                  <div>
+                    <span className="text-[10.5px] font-bold tracking-[0.14em] text-copper uppercase">What we do</span>
+                    <h3 className="text-xl font-extrabold tracking-tight text-ink leading-tight sm:text-2xl">
+                      {detail.title}
+                    </h3>
+                  </div>
+                </div>
+
+                <p className="mt-3.5 text-xs leading-relaxed text-muted sm:text-sm">
+                  {detail.body}
+                </p>
+
                 {detail.points && (
-                  <ul className="mt-4 space-y-1.5 text-sm text-ink/80">
+                  <ul className="mt-4 space-y-2 rounded-2xl border border-line/70 bg-cream/60 p-3 sm:p-3.5">
                     {detail.points.map((point) => (
-                      <li key={point}><span className="mr-2 text-copper">–</span>{point}</li>
+                      <li key={point} className="flex items-start gap-2.5 text-xs font-medium text-ink/85 sm:text-[13px]">
+                        <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-copper" />
+                        <span>{point}</span>
+                      </li>
                     ))}
                   </ul>
                 )}
-                <TextLink to={detail.to} className="mt-5">{detail.link || "Read more"}</TextLink>
+
+                <div className="mt-5 flex items-center justify-between gap-3 border-t border-line/60 pt-4 sm:mt-auto">
+                  <Button to={detail.to} className="px-4 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm">
+                    {detail.link || "Read more"} <span aria-hidden="true">→</span>
+                  </Button>
+                  <button
+                    type="button"
+                    onClick={() => setDetail(null)}
+                    className="rounded-full border border-line px-3.5 py-1.5 text-xs font-semibold text-muted transition hover:border-ink hover:text-ink active:scale-95"
+                  >
+                    Close
+                  </button>
+                </div>
               </div>
             </article>
           </div>

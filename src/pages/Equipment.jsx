@@ -149,12 +149,23 @@ export default function Equipment() {
           aria-label={photo.name}
           onClick={() => setPhoto(null)}
         >
-          <img
-            src={photo.image}
-            alt={photo.name}
-            className="pop-in aspect-square w-full max-w-[min(90vw,32rem)] rounded-[28px] object-cover shadow-2xl"
-            onClick={(event) => event.stopPropagation()}
-          />
+          <div className="relative" onClick={(event) => event.stopPropagation()}>
+            <img
+              src={photo.image}
+              alt={photo.name}
+              className="pop-in aspect-square w-full max-w-[min(90vw,32rem)] rounded-[28px] object-cover shadow-2xl"
+            />
+            <button
+              type="button"
+              onClick={() => setPhoto(null)}
+              className="absolute top-3.5 right-3.5 grid h-9 w-9 place-items-center rounded-full bg-black/60 text-white backdrop-blur-sm transition hover:bg-black/80"
+              aria-label="Close"
+            >
+              <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                <path d="M3.5 3.5l9 9M12.5 3.5l-9 9" />
+              </svg>
+            </button>
+          </div>
         </div>
       )}
 
