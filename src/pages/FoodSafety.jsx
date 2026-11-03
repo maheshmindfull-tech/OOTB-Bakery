@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { useTitle } from "../useTitle";
 import { Button, Container, CtaBand, Eyebrow, Media, PageHero } from "../components/Ui";
 import { certs } from "../data/site";
@@ -439,110 +440,6 @@ export default function FoodSafety() {
             </article>
           </div>
         </Container>
-
-        {/* Detailed Modal Window for Full Text */}
-        {selected && (
-          <div
-            className="overlay-in fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
-            role="dialog"
-            aria-modal="true"
-            aria-label={`${selected.num} ${selected.title}`}
-            onClick={() => setSelected(null)}
-          >
-            <article
-              className="pop-in relative flex max-h-[90vh] w-full max-w-xl flex-col overflow-hidden rounded-[26px] border border-line bg-paper shadow-2xl"
-              onClick={(e) => e.stopPropagation()}
-            >
-              {/* Modal Header */}
-              <div className="relative border-b border-line/70 bg-[#faf5ee] px-6 py-5 sm:px-8">
-                <button
-                  type="button"
-                  onClick={() => setSelected(null)}
-                  className="absolute top-4 right-4 grid h-9 w-9 place-items-center rounded-full bg-stone-200/80 text-ink transition hover:bg-stone-300 active:scale-95"
-                  aria-label="Close"
-                >
-                  <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
-                    <path d="M3.5 3.5l9 9M12.5 3.5l-9 9" />
-                  </svg>
-                </button>
-                <div className="flex items-center gap-4">
-                  <div className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-[#fceddf] text-copper shadow-sm">
-                    <CheckpointIcon name={selected.icon} className="h-7 w-7" />
-                  </div>
-                  <div>
-                    <span className="text-[11px] font-bold tracking-widest text-copper uppercase">
-                      Checkpoint {selected.num} of 10
-                    </span>
-                    <h3 className="text-xl font-extrabold tracking-tight text-ink sm:text-2xl leading-tight">
-                      {selected.title}
-                    </h3>
-                  </div>
-                </div>
-              </div>
-
-              {/* Modal Body */}
-              <div className="flex-1 overflow-y-auto px-6 py-6 sm:px-8">
-                <span className="text-[11px] font-bold tracking-wider text-copper uppercase">
-                  Full QA Procedure
-                </span>
-                <p className="mt-2 text-sm sm:text-base leading-relaxed text-ink/90 font-normal">
-                  {selected.fullText}
-                </p>
-
-                {selected.details && (
-                  <div className="mt-6 rounded-2xl border border-line/70 bg-cream/60 p-4 sm:p-5">
-                    <p className="text-xs font-bold uppercase tracking-wider text-ink/75">
-                      Key Verification Standards
-                    </p>
-                    <ul className="mt-3 space-y-2">
-                      {selected.details.map((point) => (
-                        <li key={point} className="flex items-start gap-2.5 text-xs sm:text-sm text-ink/85">
-                          <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-copper" />
-                          <span>{point}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-
-              {/* Modal Footer with navigation */}
-              <div className="flex items-center justify-between border-t border-line/70 bg-[#faf5ee] px-6 py-4 sm:px-8">
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    disabled={parseInt(selected.num, 10) === 1}
-                    onClick={() => {
-                      const idx = checkpoints.findIndex((c) => c.num === selected.num);
-                      if (idx > 0) setSelected(checkpoints[idx - 1]);
-                    }}
-                    className="inline-flex items-center rounded-full border border-line bg-white px-3.5 py-1.5 text-xs font-semibold text-ink transition hover:border-ink disabled:opacity-30 disabled:cursor-not-allowed"
-                  >
-                    Previous
-                  </button>
-                  <button
-                    type="button"
-                    disabled={parseInt(selected.num, 10) === 10}
-                    onClick={() => {
-                      const idx = checkpoints.findIndex((c) => c.num === selected.num);
-                      if (idx < checkpoints.length - 1) setSelected(checkpoints[idx + 1]);
-                    }}
-                    className="inline-flex items-center rounded-full border border-line bg-white px-3.5 py-1.5 text-xs font-semibold text-ink transition hover:border-ink disabled:opacity-30 disabled:cursor-not-allowed"
-                  >
-                    Next
-                  </button>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setSelected(null)}
-                  className="rounded-full bg-ink px-4 py-1.5 text-xs font-semibold text-white transition hover:bg-black"
-                >
-                  Close
-                </button>
-              </div>
-            </article>
-          </div>
-        )}
       </section>
 
       <section className="bg-ink py-16 text-white md:py-24">
@@ -572,6 +469,111 @@ export default function FoodSafety() {
       >
         Tell us what your supplier approval process needs and we will send what we can: certificates, the nut-free policy, ingredient specifications and an outline of the HACCP plan for the products you are interested in.
       </CtaBand>
+
+      {/* Detailed Modal Window for Full Text - Rendered directly to body via portal */}
+      {selected && typeof document !== "undefined" && createPortal(
+        <div
+          className="overlay-in fixed inset-0 z-[9999] flex items-center justify-center bg-black/75 p-4 backdrop-blur-sm"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selected.num} ${selected.title}`}
+          onClick={() => setSelected(null)}
+        >
+          <article
+            className="pop-in relative my-auto flex max-h-[85vh] w-full max-w-xl flex-col overflow-hidden rounded-[26px] border border-line bg-paper shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="relative border-b border-line/70 bg-[#faf5ee] px-6 py-5 sm:px-8">
+              <button
+                type="button"
+                onClick={() => setSelected(null)}
+                className="absolute top-4 right-4 grid h-9 w-9 place-items-center rounded-full bg-stone-200/80 text-ink transition hover:bg-stone-300"
+                aria-label="Close"
+              >
+                <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round">
+                  <path d="M3.5 3.5l9 9M12.5 3.5l-9 9" />
+                </svg>
+              </button>
+              <div className="flex items-center gap-4">
+                <div className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-[#fceddf] text-copper shadow-sm">
+                  <CheckpointIcon name={selected.icon} className="h-7 w-7" />
+                </div>
+                <div>
+                  <span className="text-[11px] font-bold tracking-widest text-copper uppercase">
+                    Checkpoint {selected.num} of 10
+                  </span>
+                  <h3 className="text-xl font-extrabold tracking-tight text-ink sm:text-2xl leading-tight">
+                    {selected.title}
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Body */}
+            <div className="flex-1 overflow-y-auto px-6 py-6 sm:px-8">
+              <span className="text-[11px] font-bold tracking-wider text-copper uppercase">
+                Full QA Procedure
+              </span>
+              <p className="mt-2 text-sm sm:text-base leading-relaxed text-ink/90 font-normal">
+                {selected.fullText}
+              </p>
+
+              {selected.details && (
+                <div className="mt-6 rounded-2xl border border-line/70 bg-cream/60 p-4 sm:p-5">
+                  <p className="text-xs font-bold uppercase tracking-wider text-ink/75">
+                    Key Verification Standards
+                  </p>
+                  <ul className="mt-3 space-y-2">
+                    {selected.details.map((point) => (
+                      <li key={point} className="flex items-start gap-2.5 text-xs sm:text-sm text-ink/85">
+                        <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-copper" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            {/* Modal Footer with navigation */}
+            <div className="flex items-center justify-between border-t border-line/70 bg-[#faf5ee] px-6 py-4 sm:px-8">
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  disabled={parseInt(selected.num, 10) === 1}
+                  onClick={() => {
+                    const idx = checkpoints.findIndex((c) => c.num === selected.num);
+                    if (idx > 0) setSelected(checkpoints[idx - 1]);
+                  }}
+                  className="inline-flex items-center rounded-full border border-line bg-white px-3.5 py-1.5 text-xs font-semibold text-ink transition hover:border-ink disabled:opacity-30 disabled:cursor-not-allowed"
+                >
+                  Previous
+                </button>
+                <button
+                  type="button"
+                  disabled={parseInt(selected.num, 10) === 10}
+                  onClick={() => {
+                    const idx = checkpoints.findIndex((c) => c.num === selected.num);
+                    if (idx < checkpoints.length - 1) setSelected(checkpoints[idx + 1]);
+                  }}
+                  className="inline-flex items-center rounded-full border border-line bg-white px-3.5 py-1.5 text-xs font-semibold text-ink transition hover:border-ink disabled:opacity-30 disabled:cursor-not-allowed"
+                >
+                  Next
+                </button>
+              </div>
+              <button
+                type="button"
+                onClick={() => setSelected(null)}
+                className="rounded-full bg-ink px-4 py-1.5 text-xs font-semibold text-white transition hover:bg-black"
+              >
+                Close
+              </button>
+            </div>
+          </article>
+        </div>,
+        document.body
+      )}
     </>
   );
 }

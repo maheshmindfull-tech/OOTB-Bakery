@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { useLocation } from "react-router-dom";
 import { useTitle } from "../useTitle";
 import { Button, Container, CtaBand, Eyebrow, Media, PageHero, Pill } from "../components/Ui";
@@ -141,15 +142,15 @@ export default function Equipment() {
         Send the product, the format and the volume. We will tell you whether it runs on this equipment and what we would need to change.
       </CtaBand>
 
-      {photo && (
+      {photo && typeof document !== "undefined" && createPortal(
         <div
-          className="overlay-in fixed inset-0 z-50 grid place-items-center bg-black/70 p-4"
+          className="overlay-in fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 p-4"
           role="dialog"
           aria-modal="true"
           aria-label={photo.name}
           onClick={() => setPhoto(null)}
         >
-          <div className="relative" onClick={(event) => event.stopPropagation()}>
+          <div className="relative my-auto" onClick={(event) => event.stopPropagation()}>
             <img
               src={photo.image}
               alt={photo.name}
@@ -166,12 +167,13 @@ export default function Equipment() {
               </svg>
             </button>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
 
-      {open && (
-        <div className="overlay-in fixed inset-0 z-50 grid place-items-center bg-black/70 p-4" role="dialog" aria-modal="true" aria-labelledby="clip-title">
-          <div className="pop-in max-h-[90vh] w-full max-w-lg overflow-auto rounded-[28px] bg-paper shadow-2xl">
+      {open && typeof document !== "undefined" && createPortal(
+        <div className="overlay-in fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 p-4" role="dialog" aria-modal="true" aria-labelledby="clip-title" onClick={() => setOpen(null)}>
+          <div className="pop-in my-auto max-h-[90vh] w-full max-w-lg overflow-auto rounded-[28px] bg-paper shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <video
               key={open.id}
               src={open.video}
@@ -191,7 +193,8 @@ export default function Equipment() {
               <button type="button" onClick={() => setOpen(null)} className="mt-5 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white">Close</button>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );

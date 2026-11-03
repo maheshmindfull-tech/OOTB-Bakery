@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { useTitle } from "../useTitle";
 import { Button, Container, Eyebrow, Icon, Media, TextLink } from "../components/Ui";
@@ -249,16 +250,16 @@ export default function Home() {
             </div>
           </div>
         </Container>
-        {detail && (
+        {detail && typeof document !== "undefined" && createPortal(
           <div
-            className="overlay-in fixed inset-0 z-50 flex items-center justify-center bg-black/75 p-3.5 backdrop-blur-sm sm:p-6"
+            className="overlay-in fixed inset-0 z-[9999] flex items-center justify-center bg-black/75 p-3.5 backdrop-blur-sm sm:p-6"
             role="dialog"
             aria-modal="true"
             aria-label={detail.title}
             onClick={() => setDetail(null)}
           >
             <article
-              className="pop-in relative flex max-h-[88vh] w-full max-w-[460px] flex-col overflow-hidden rounded-[26px] border border-white/10 bg-paper shadow-2xl sm:max-h-[540px] sm:max-w-3xl sm:grid sm:grid-cols-2 sm:rounded-[32px]"
+              className="pop-in relative my-auto flex max-h-[88vh] w-full max-w-[460px] flex-col overflow-hidden rounded-[26px] border border-white/10 bg-paper shadow-2xl sm:max-h-[540px] sm:max-w-3xl sm:grid sm:grid-cols-2 sm:rounded-[32px]"
               onClick={(event) => event.stopPropagation()}
             >
               <button
@@ -312,14 +313,15 @@ export default function Home() {
                   <button
                     type="button"
                     onClick={() => setDetail(null)}
-                    className="rounded-full border border-line px-3.5 py-1.5 text-xs font-semibold text-muted transition hover:border-ink hover:text-ink active:scale-95"
+                    className="rounded-full border border-line px-3.5 py-1.5 text-xs font-semibold text-muted transition hover:border-ink hover:text-ink"
                   >
                     Close
                   </button>
                 </div>
               </div>
             </article>
-          </div>
+          </div>,
+          document.body
         )}
       </section>
 
@@ -479,9 +481,9 @@ export default function Home() {
         </div>
       </section>
 
-      {clip && (
-        <div className="overlay-in fixed inset-0 z-50 grid place-items-center bg-[#100c09]/80 p-4 backdrop-blur-[2px]" role="dialog" aria-modal="true" aria-labelledby="home-clip-title" onClick={() => setClip(null)}>
-          <article className="pop-in max-h-[92vh] w-full max-w-3xl overflow-auto rounded-[28px] bg-paper text-ink shadow-[0_30px_80px_rgba(0,0,0,0.45)]" onClick={(event) => event.stopPropagation()}>
+      {clip && typeof document !== "undefined" && createPortal(
+        <div className="overlay-in fixed inset-0 z-[9999] flex items-center justify-center bg-[#100c09]/80 p-4 backdrop-blur-[2px]" role="dialog" aria-modal="true" aria-labelledby="home-clip-title" onClick={() => setClip(null)}>
+          <article className="pop-in my-auto max-h-[92vh] w-full max-w-3xl overflow-auto rounded-[28px] bg-paper text-ink shadow-[0_30px_80px_rgba(0,0,0,0.45)]" onClick={(event) => event.stopPropagation()}>
             <div className="relative bg-black">
               <video
                 key={clip.id}
@@ -518,7 +520,8 @@ export default function Home() {
               </div>
             </div>
           </article>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
