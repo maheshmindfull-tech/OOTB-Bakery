@@ -18,7 +18,7 @@ const buttonStyles = {
   primary: "bg-copper text-white hover:bg-copper-deep",
   ghost: "border border-white/30 bg-transparent text-white hover:border-white/60 hover:bg-white/5",
   outline: "border border-line bg-paper text-ink hover:border-copper/60 hover:text-copper",
-  dark: "bg-ink text-white hover:bg-[#251b14]",
+  dark: "bg-chocolate text-white hover:bg-chocolate-warm",
 };
 
 export function Button({ to, href, children, variant = "primary", className = "", type = "button", onClick }) {
@@ -130,7 +130,7 @@ export function Media({ icon = "mixer", label, play = false, image, video, alt =
 export function CtaBand({ eyebrow = "Next step", title, children, actions }) {
   return (
     <section className="bg-cream px-5 py-6 md:px-8 md:py-8">
-      <div className="relative mx-auto max-w-[1180px] overflow-hidden rounded-[28px] bg-espresso px-6 py-10 text-white md:px-12 md:py-12 border border-white/5">
+      <div className="relative mx-auto max-w-[1180px] overflow-hidden rounded-[28px] bg-chocolate px-6 py-10 text-white md:px-12 md:py-12 border border-white/10">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_82%_18%,rgba(194,81,45,0.45),transparent_50%)]" />
         <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-xl">
@@ -147,10 +147,10 @@ export function CtaBand({ eyebrow = "Next step", title, children, actions }) {
 
 export function HeroShell({ image = "/media/images/cookies-hero.jpg", className = "", full = false, children }) {
   return (
-    <section className={`hero relative flex flex-col items-start justify-start overflow-hidden bg-ink text-white ${full ? "min-h-[calc(100svh-87px)]" : ""}`}>
+    <section className={`hero relative flex flex-col items-start justify-start overflow-hidden bg-chocolate text-white ${full ? "min-h-[calc(100svh-87px)]" : ""}`}>
       <img src={image} alt="" className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-[52%] object-cover lg:block" />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,#14110e_0%,#14110e_46%,rgba(20,17,14,0.72)_68%,rgba(20,17,14,0.28)_100%)]" />
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_520px_at_88%_42%,rgba(176,78,28,0.28),transparent_58%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,#2d1910_0%,#2d1910_46%,rgba(45,25,16,0.76)_68%,rgba(45,25,16,0.28)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_520px_at_88%_42%,rgba(194,81,45,0.32),transparent_58%)]" />
       <Container className={`hero-copy relative w-full ${full ? "pt-12 pb-16 md:pt-16 md:pb-24" : "pt-16 pb-20 md:pt-24 md:pb-28"} ${className}`}>
         {children}
       </Container>

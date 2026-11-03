@@ -31,7 +31,7 @@ export default function Industries() {
         </Container>
       </section>
 
-      <section className="bg-ink py-16 text-white md:py-24">
+      <section className="bg-chocolate py-16 text-white md:py-24">
         <Container>
           <Eyebrow>Common ground</Eyebrow>
           <h2 className="text-4xl font-extrabold tracking-[-0.03em] md:text-5xl">What every one of them needs.</h2>

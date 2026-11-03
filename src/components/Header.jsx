@@ -32,7 +32,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-40 bg-ink text-white transition-shadow duration-300 ${scrolled ? "shadow-[0_10px_30px_rgba(20,17,14,0.18)]" : ""}`}>
+    <header className={`sticky top-0 z-40 bg-chocolate text-white transition-shadow duration-300 ${scrolled ? "shadow-[0_10px_30px_rgba(35,20,13,0.25)]" : ""}`}>
       <div className="h-[3px] bg-copper" />
       <div className="mx-auto flex max-w-[1280px] items-center gap-4 px-5 py-2 md:px-6">
         <NavLink to="/" className="shrink-0" aria-label="OOTB Bakery home">
@@ -70,7 +70,7 @@ export default function Header() {
         </button>
       </div>
       {open && (
-        <nav className="border-t border-white/10 bg-ink px-5 py-4 xl:hidden" aria-label="Mobile">
+        <nav className="border-t border-white/10 bg-chocolate px-5 py-4 xl:hidden" aria-label="Mobile">
           <div className="flex flex-col gap-1">
             {links.map((link) => (
               <NavLink key={link.to} to={link.to} end={link.end} className="rounded-xl px-3 py-2.5 text-sm font-medium">

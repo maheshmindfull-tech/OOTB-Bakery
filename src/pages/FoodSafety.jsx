@@ -442,7 +442,7 @@ export default function FoodSafety() {
         </Container>
       </section>
 
-      <section className="bg-ink py-16 text-white md:py-24">
+      <section className="bg-chocolate py-16 text-white md:py-24">
         <Container>
           <Eyebrow>Traceability and recall readiness</Eyebrow>
           <h2 className="max-w-3xl text-4xl font-extrabold tracking-[-0.03em] md:text-5xl">The question you should ask every co-packer.</h2>

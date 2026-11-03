@@ -3,8 +3,11 @@
 @theme {
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
-  --color-ink: #14110e;
-  --color-espresso: #1f1610;
+  --color-ink: #1f140e;
+  --color-chocolate: #2d1910;
+  --color-chocolate-deep: #24130b;
+  --color-chocolate-warm: #382015;
+  --color-espresso: #2d1910;
   --color-cream: #fbf7f0;
   --color-cream-deep: #f3ece3;
   --color-paper: #ffffff;

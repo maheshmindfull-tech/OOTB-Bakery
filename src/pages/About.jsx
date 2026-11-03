@@ -38,7 +38,7 @@ export default function About() {
         </Container>
       </section>
 
-      <section className="bg-ink py-16 text-white md:py-20">
+      <section className="bg-chocolate py-16 text-white md:py-20">
         <Container className="grid items-center gap-10 lg:grid-cols-2">
           <Media image="/media/images/plant.jpg" video="/media/videos/bakery-line.mp4" label="Inside the plant" alt="Bakery production line" className="h-72 md:h-80" />
           <div>

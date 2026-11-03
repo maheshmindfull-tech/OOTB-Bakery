@@ -36,7 +36,7 @@ function Col({ title, items }) {
 
 export default function Footer() {
   return (
-    <footer className="bg-ink text-white">
+    <footer className="bg-chocolate-deep text-white">
       <div className="mx-auto grid max-w-[1180px] gap-10 px-5 py-14 md:px-8 md:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
         <div>
           <Logo className="h-16" />
