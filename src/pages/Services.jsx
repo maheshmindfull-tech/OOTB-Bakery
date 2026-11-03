@@ -47,7 +47,7 @@ export default function Services() {
                 {current.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               </div>
               <div className="mt-6 flex flex-wrap gap-3">
-                <Button to="/contact">Request a Quote <span aria-hidden="true">→</span></Button>
+                <Button to="/contact">Request a Quote</Button>
                 <Button to="/equipment" variant="outline">See the equipment</Button>
               </div>
             </div>
@@ -92,7 +92,7 @@ export default function Services() {
         title="Which of these do you actually need?"
         actions={
           <>
-            <Button to="/contact">Request a Quote <span aria-hidden="true">→</span></Button>
+            <Button to="/contact">Request a Quote</Button>
             <Button to="/equipment" variant="ghost">See the line running</Button>
           </>
         }

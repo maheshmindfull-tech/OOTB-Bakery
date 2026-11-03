@@ -66,7 +66,7 @@ export default function Equipment() {
                           width="72"
                           height="72"
                           loading="lazy"
-                          className="h-[72px] w-[72px] object-cover transition duration-500 group-hover:scale-105"
+                          className="h-[72px] w-[72px] object-cover"
                         />
                       </button>
                       <div className="min-w-0">
@@ -107,7 +107,7 @@ export default function Equipment() {
                   <h3 className="font-bold">{clip.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted">{clip.summary}</p>
                   <button type="button" onClick={() => setOpen(clip)} className="group mt-auto pt-4 text-left text-xs font-semibold tracking-[0.12em] text-copper uppercase">
-                    Watch clip <span aria-hidden="true">→</span>
+                    Watch clip
                   </button>
                 </div>
               </article>
@@ -125,7 +125,7 @@ export default function Equipment() {
               If you are seriously evaluating the bakery, come and walk it. You will learn more in twenty minutes on the floor than from any amount of video, and we would rather you saw it before you commit to a run.
             </p>
           </div>
-          <Button to="/facilities#visit" variant="dark">Book a plant tour <span aria-hidden="true">→</span></Button>
+          <Button to="/facilities#visit" variant="dark">Book a plant tour</Button>
         </div>
       </section>
 
@@ -133,7 +133,7 @@ export default function Equipment() {
         title="Seen enough to talk specifics?"
         actions={
           <>
-            <Button to="/contact">Request a Quote <span aria-hidden="true">→</span></Button>
+            <Button to="/contact">Request a Quote</Button>
             <Button to="/equipment" variant="ghost">See the line running</Button>
           </>
         }

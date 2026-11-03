@@ -47,7 +47,7 @@ export default function Faq() {
         title="Question not answered here?"
         actions={
           <>
-            <Button to="/contact">Ask us directly <span aria-hidden="true">→</span></Button>
+            <Button to="/contact">Ask us directly</Button>
             <Button to="/food-safety" variant="ghost">Read about food safety</Button>
           </>
         }

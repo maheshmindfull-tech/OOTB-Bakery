@@ -22,7 +22,7 @@ const buttonStyles = {
 };
 
 export function Button({ to, href, children, variant = "primary", className = "", type = "button", onClick }) {
-  const cls = `group inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition duration-200 hover:-translate-y-0.5 ${buttonStyles[variant]} ${className}`;
+  const cls = `group inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition duration-200 ${buttonStyles[variant]} ${className}`;
   if (to) return <Link to={to} className={cls}>{children}</Link>;
   if (href) return <a href={href} className={cls}>{children}</a>;
   return (
@@ -92,7 +92,7 @@ export function Media({ icon = "mixer", label, play = false, image, video, alt =
       {video && !play ? (
         <video
           ref={videoRef}
-          className="absolute inset-0 h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
+          className="absolute inset-0 h-full w-full object-cover"
           src={video}
           poster={image}
           muted
@@ -101,7 +101,7 @@ export function Media({ icon = "mixer", label, play = false, image, video, alt =
           autoPlay
         />
       ) : image ? (
-        <img src={image} alt={alt} className="absolute inset-0 h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105" />
+        <img src={image} alt={alt} className="absolute inset-0 h-full w-full object-cover" />
       ) : (
         <>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_28%_18%,rgba(214,140,70,0.55),transparent_42%),radial-gradient(circle_at_78%_82%,rgba(70,24,10,0.75),transparent_46%),linear-gradient(160deg,#3a2418,#1a100c)]" />
@@ -117,7 +117,7 @@ export function Media({ icon = "mixer", label, play = false, image, video, alt =
       )}
       {play && (
         <span className="absolute inset-0 z-10 grid place-items-center bg-black/15">
-          <span className="grid h-14 w-14 place-items-center rounded-full bg-white text-ink shadow-lg transition duration-300 group-hover:scale-110">
+          <span className="grid h-14 w-14 place-items-center rounded-full bg-white text-ink transition duration-300">
             <svg viewBox="0 0 18 18" className="ml-0.5 h-4 w-4" fill="currentColor" aria-hidden="true">
               <path d="M6 3.5v11l9-5.5-9-5.5z" />
             </svg>

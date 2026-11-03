@@ -186,7 +186,7 @@ export default function Home() {
             OOTB Bakery is a certified nut-free contract bakery and private label manufacturer in the Greater Toronto Area. Bring us a recipe or a brief. We mix, bake, pack and ship it from one site at 288 Judson Street.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button to="/contact">Request a Quote <span aria-hidden="true">→</span></Button>
+            <Button to="/contact">Request a Quote</Button>
             <Button to="/equipment" variant="ghost">See the line running</Button>
           </div>
           <div className="mt-8 flex flex-wrap gap-2">
@@ -236,10 +236,10 @@ export default function Home() {
                         className="line-card group relative block overflow-hidden rounded-[18px] text-left"
                         onClick={() => setDetail(item)}
                       >
-                        <img src={item.image} alt="" className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                        <img src={item.image} alt="" className="absolute inset-0 h-full w-full object-cover" />
                         <span className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
                         <span className="absolute right-3 bottom-3 left-3 text-[13px] leading-snug font-semibold text-white">
-                          {item.title} <span aria-hidden="true">→</span>
+                          {item.title}
                         </span>
                       </button>
                     ))}
@@ -264,7 +264,7 @@ export default function Home() {
               <button
                 type="button"
                 onClick={() => setDetail(null)}
-                className="absolute top-3 right-3 z-30 grid h-9 w-9 place-items-center rounded-full bg-black/60 text-white backdrop-blur-md shadow-md border border-white/20 transition hover:bg-black/80 hover:scale-105 active:scale-95 sm:top-4 sm:right-4 sm:bg-stone-200/90 sm:text-ink sm:border-line sm:hover:bg-stone-300"
+                className="absolute top-3 right-3 z-30 grid h-9 w-9 place-items-center rounded-full bg-black/60 text-white backdrop-blur-md border border-white/20 transition hover:bg-black/80 sm:top-4 sm:right-4 sm:bg-stone-200/90 sm:text-ink sm:border-line sm:hover:bg-stone-300"
                 aria-label="Close"
               >
                 <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
@@ -307,7 +307,7 @@ export default function Home() {
 
                 <div className="mt-5 flex items-center justify-between gap-3 border-t border-line/60 pt-4 sm:mt-auto">
                   <Button to={detail.to} className="px-4 py-2 text-xs sm:px-5 sm:py-2.5 sm:text-sm">
-                    {detail.link || "Read more"} <span aria-hidden="true">→</span>
+                    {detail.link || "Read more"}
                   </Button>
                   <button
                     type="button"
@@ -340,14 +340,14 @@ export default function Home() {
                   <h3 className="font-bold">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted">{item.summary}</p>
                   <button type="button" onClick={() => setClip(item)} className="mt-auto pt-4 text-left text-xs font-semibold tracking-[0.12em] text-copper uppercase">
-                    Watch clip <span aria-hidden="true">→</span>
+                    Watch clip
                   </button>
                 </div>
               </article>
             ))}
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button to="/equipment" variant="outline">Open the full library <span aria-hidden="true">→</span></Button>
+            <Button to="/equipment" variant="outline">Open the full library</Button>
             <Button to="/facilities#visit" variant="outline">Book a plant tour</Button>
           </div>
         </Container>
@@ -408,7 +408,7 @@ export default function Home() {
                   </Link>
                 ))}
               </div>
-              <Button to="/industries" className="mt-8 self-start">All six buyer types <span aria-hidden="true">→</span></Button>
+              <Button to="/industries" className="mt-8 self-start">All six buyer types</Button>
             </div>
           </div>
         </div>
@@ -475,7 +475,7 @@ export default function Home() {
               Send the product, the format and the volume you are planning. We will tell you what we can run, what we would change and what we need from you to quote it.
             </p>
           </div>
-          <Button to="/contact" className="relative shrink-0">Request a Quote <span aria-hidden="true">→</span></Button>
+          <Button to="/contact" className="relative shrink-0">Request a Quote</Button>
         </div>
       </section>
 
@@ -513,7 +513,7 @@ export default function Home() {
               <h2 id="home-clip-title" className="mt-2 text-2xl font-extrabold tracking-[-0.03em] md:text-[1.75rem]">{clip.title}</h2>
               <p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted md:text-[15px]">{clip.body}</p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <Button to="/equipment">Open the full library <span aria-hidden="true">→</span></Button>
+                <Button to="/equipment">Open the full library</Button>
                 <button type="button" onClick={() => setClip(null)} className="rounded-full border border-ink/15 px-5 py-2.5 text-sm font-semibold transition hover:border-ink/30">Close</button>
               </div>
             </div>

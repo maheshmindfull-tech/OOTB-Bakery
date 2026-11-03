@@ -39,7 +39,7 @@ export default function Careers() {
         title="Not a job enquiry?"
         actions={
           <>
-            <Button to="/contact">Request a Quote <span aria-hidden="true">→</span></Button>
+            <Button to="/contact">Request a Quote</Button>
             <Button to="/products" variant="ghost">See what we make</Button>
           </>
         }

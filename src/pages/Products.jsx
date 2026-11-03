@@ -57,7 +57,7 @@ export default function Products() {
                   </div>
                 </div>
                 <Button to={`/contact?product=${encodeURIComponent(product.category)}`} variant="outline" className="mt-6">
-                  Quote this product <span aria-hidden="true">→</span>
+                  Quote this product
                 </Button>
               </div>
             </Container>
@@ -76,7 +76,7 @@ export default function Products() {
             The products above are what the bakery runs today. New products go through the same route as everything else: a brief, a sample, a scale-up trial and a documented first run. If it will not work on our equipment we tell you at the brief stage, before you have bought packaging.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Button to="/contact">Describe your product <span aria-hidden="true">→</span></Button>
+            <Button to="/contact">Describe your product</Button>
             <Button to="/services" variant="outline">How co-manufacturing works</Button>
           </div>
         </Container>
@@ -86,7 +86,7 @@ export default function Products() {
         title="Tell us what you want to make."
         actions={
           <>
-            <Button to="/contact">Request a Quote <span aria-hidden="true">→</span></Button>
+            <Button to="/contact">Request a Quote</Button>
             <Button to="/equipment" variant="ghost">See the line running</Button>
           </>
         }

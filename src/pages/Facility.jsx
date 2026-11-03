@@ -37,7 +37,7 @@ export default function Facility() {
                 <p>It sits inside the Greater Toronto Area, within easy reach of the major highways, the region's grocery and club distribution centres, and most of the ingredient suppliers a bakery depends on.</p>
               </div>
               <div className="mt-6 flex flex-wrap gap-3">
-                <Button to="/contact">Book a plant tour <span aria-hidden="true">→</span></Button>
+                <Button to="/contact">Book a plant tour</Button>
                 <Button to="/equipment" variant="outline">See the line running</Button>
               </div>
             </div>
@@ -82,7 +82,7 @@ export default function Facility() {
               </article>
             ))}
           </div>
-          <Button to="/contact" className="mt-8">Arrange a visit <span aria-hidden="true">→</span></Button>
+          <Button to="/contact" className="mt-8">Arrange a visit</Button>
         </Container>
       </section>
 
@@ -90,7 +90,7 @@ export default function Facility() {
         title="Want to see it before you commit?"
         actions={
           <>
-            <Button to="/contact">Book a plant tour <span aria-hidden="true">→</span></Button>
+            <Button to="/contact">Book a plant tour</Button>
             <Button to="/equipment" variant="ghost">Watch the clips instead</Button>
           </>
         }

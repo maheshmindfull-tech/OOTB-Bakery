@@ -24,7 +24,7 @@ export default function NotFound() {
       <h1 className="mt-4 text-3xl font-extrabold tracking-tight md:text-5xl">That page came out of the oven empty.</h1>
       <p className="mx-auto mt-4 max-w-md text-white/65">The link is broken or the page has moved. Nothing more dramatic than that. Here is everything else on the site.</p>
       <div className="mt-8 flex flex-wrap justify-center gap-3">
-        <Button to="/">Back to home <span aria-hidden="true">→</span></Button>
+        <Button to="/">Back to home</Button>
         <Button to="/contact" variant="ghost">Request a Quote</Button>
       </div>
       <div className="mx-auto mt-8 flex max-w-3xl flex-wrap justify-center gap-2">

@@ -89,7 +89,7 @@ export default function Contact() {
             </label>
             <p className="mt-4 text-sm text-muted">We use what you send here to answer your enquiry. See our <Link to="/privacy" className="font-semibold text-copper underline">privacy notice</Link>.</p>
             {sent && <p className="mt-4 rounded-2xl bg-cream px-4 py-3 text-sm">Your email app should open with this enquiry addressed to kvirk@ootbinc.com. If it does not, send the same details there or call (905) 291-1013.</p>}
-            <Button type="submit" className="mt-5">Send request <span aria-hidden="true">→</span></Button>
+            <Button type="submit" className="mt-5">Send request</Button>
           </form>
 
           <aside>

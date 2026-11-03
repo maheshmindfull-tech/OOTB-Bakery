@@ -31,7 +31,7 @@ export default function About() {
               <p>The site runs nut-free. Peanuts and tree nuts do not come into the building, which takes the hardest allergen problem in baking off the table instead of managing it with cleaning schedules.</p>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Button to="/contact">Request a Quote <span aria-hidden="true">→</span></Button>
+              <Button to="/contact">Request a Quote</Button>
               <Button to="/facilities" variant="outline">See our facility</Button>
             </div>
           </div>
@@ -48,7 +48,7 @@ export default function About() {
               <p>Cooled product runs through metal detection and checkweighing before it is packed, labelled, cased and palletised. Pre-operational sanitation is signed off by zone before any of that starts.</p>
               <p>None of it is unusual. What matters is that it happens the same way every run, and that there is a record to show it.</p>
             </div>
-            <Button to="/equipment" variant="ghost" className="mt-6">Watch each stage <span aria-hidden="true">→</span></Button>
+            <Button to="/equipment" variant="ghost" className="mt-6">Watch each stage</Button>
           </div>
         </Container>
       </section>
@@ -86,7 +86,7 @@ export default function About() {
               </div>
             ))}
           </div>
-          <Button to="/facilities" variant="outline" className="mt-6">Facility detail and map <span aria-hidden="true">→</span></Button>
+          <Button to="/facilities" variant="outline" className="mt-6">Facility detail and map</Button>
         </Container>
       </section>
 
@@ -94,7 +94,7 @@ export default function About() {
         title="Bring us the product you cannot make yet."
         actions={
           <>
-            <Button to="/contact">Request a Quote <span aria-hidden="true">→</span></Button>
+            <Button to="/contact">Request a Quote</Button>
             <Button to="/equipment" variant="ghost">See the line running</Button>
           </>
         }
