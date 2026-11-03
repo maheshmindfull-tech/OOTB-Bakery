@@ -66,7 +66,7 @@ export default function Services() {
         </Container>
       </section>
 
-      <section className="bg-chocolate py-16 text-white md:py-24">
+      <section className="bg-ink py-16 text-white md:py-24">
         <Container>
           <Eyebrow>Why it sits under one roof</Eyebrow>
           <h2 className="max-w-3xl text-4xl font-extrabold tracking-[-0.03em] md:text-5xl">Fewer handoffs, fewer places to lose a week.</h2>

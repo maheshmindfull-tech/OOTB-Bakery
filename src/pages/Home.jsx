@@ -174,10 +174,10 @@ export default function Home() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-chocolate text-white">
+      <section className="relative overflow-hidden bg-ink text-white">
         <img src="/media/images/cookies-hero.jpg" alt="" className="pointer-events-none absolute inset-y-0 right-0 hidden h-full w-[52%] object-cover lg:block" />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,#2d1910_0%,#2d1910_46%,rgba(45,25,16,0.76)_68%,rgba(45,25,16,0.28)_100%)]" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_520px_at_88%_42%,rgba(194,81,45,0.32),transparent_58%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,#14110e_0%,#14110e_46%,rgba(20,17,14,0.72)_68%,rgba(20,17,14,0.28)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_520px_at_88%_42%,rgba(176,78,28,0.28),transparent_58%)]" />
         <Container className="relative pt-16 pb-20 md:pt-24 md:pb-28">
           <Eyebrow>Nut-free contract bakery in Etobicoke, Ontario</Eyebrow>
           <h1 className="max-w-3xl text-[3rem] leading-[0.98] font-extrabold tracking-[-0.04em] md:text-[4.6rem]">
@@ -325,7 +325,7 @@ export default function Home() {
         )}
       </section>
 
-      <section className="bg-chocolate py-16 text-white md:py-20">
+      <section className="bg-[#3a261c] py-16 text-white md:py-20">
         <Container>
           <Eyebrow>Machines in action</Eyebrow>
           <h2 className="max-w-xl text-[2.15rem] leading-[1.05] font-extrabold tracking-[-0.03em] md:text-[2.75rem]">See how your product would actually get made.</h2>
@@ -416,11 +416,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="how-it-works" className="relative overflow-hidden bg-chocolate-deep text-white">
+      <section id="how-it-works" className="relative overflow-hidden bg-[#1f1106] text-white">
         <div className="pointer-events-none absolute inset-x-0 top-0 h-[390px] lg:h-[420px]">
           <img src="/media/images/home/how/hero.jpg" alt="" className="absolute top-0 right-0 h-full w-full object-cover object-[78%_28%] lg:w-[72%]" />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,#24130b_0%,#24130b_30%,rgba(36,19,11,0.65)_44%,rgba(36,19,11,0.18)_62%,rgba(36,19,11,0)_80%)]" />
-          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(36,19,11,0)_0%,rgba(36,19,11,0)_42%,rgba(36,19,11,0.72)_70%,#24130b_88%,#24130b_100%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,#1f1106_0%,#1f1106_30%,rgba(31,17,6,0.62)_44%,rgba(31,17,6,0.16)_62%,rgba(31,17,6,0)_80%)]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(31,17,6,0)_0%,rgba(31,17,6,0)_42%,rgba(31,17,6,0.72)_70%,#1f1106_88%,#1f1106_100%)]" />
         </div>
         <Container className="relative pt-12 pb-12 md:pt-16 md:pb-16">
           <div className="max-w-[34rem]">
@@ -451,12 +451,12 @@ export default function Home() {
                 <div className="relative text-center">
                   <p className="text-[12px] font-medium tracking-[0.12em] text-[#ead9c0]">{n}</p>
                   <div className="relative mx-auto mt-2 h-[52px] w-[52px]">
-                    <span className="relative z-10 grid h-[52px] w-[52px] place-items-center rounded-full border border-[#e7d4b4] bg-[#24130b] text-[#f3e7d6]">
+                    <span className="relative z-10 grid h-[52px] w-[52px] place-items-center rounded-full border border-[#e7d4b4] bg-[#1f1106] text-[#f3e7d6]">
                       <StepIcon name={icon} />
                     </span>
                   </div>
                 </div>
-                <div className="relative z-10 mt-4 bg-[#24130b]">
+                <div className="relative z-10 mt-4 bg-[#1f1106]">
                   <img src={image} alt="" className="aspect-[2.05/1] w-full rounded-[7px] object-cover" />
                   <h3 className="mt-3 text-[14.5px] leading-snug font-bold tracking-[-0.01em] text-white">{title}</h3>
                   <p className="mt-1.5 text-[12px] leading-[1.45] text-[#d7cfc6]">{body}</p>
@@ -470,7 +470,7 @@ export default function Home() {
       <section className="bg-paper px-5 pt-10 pb-16 md:px-8">
         <div className="relative mx-auto flex max-w-[1180px] flex-col items-start justify-between gap-6 overflow-hidden rounded-[28px] px-6 py-8 md:flex-row md:items-center md:px-10">
           <img src="/media/images/cookies-hero.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-chocolate/92" />
+          <div className="absolute inset-0 bg-[#3a261c]/88" />
           <div className="relative max-w-xl">
             <h2 className="text-3xl font-extrabold tracking-[-0.03em] text-white md:text-4xl">Tell us what you want to make.</h2>
             <p className="mt-2 text-sm leading-relaxed text-white/75 md:text-base">

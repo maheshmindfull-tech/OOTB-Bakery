@@ -3,19 +3,15 @@
 @theme {
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
-  --color-ink: #1f140e;
-  --color-chocolate: #2d1910;
-  --color-chocolate-deep: #24130b;
-  --color-chocolate-warm: #382015;
-  --color-espresso: #2d1910;
-  --color-cream: #fbf7f0;
+  --color-ink: #14110e;
+  --color-cream: #f6f1ea;
   --color-cream-deep: #f3ece3;
-  --color-paper: #ffffff;
+  --color-paper: #fffcf9;
   --color-copper: #c2512d;
   --color-copper-deep: #a34122;
   --color-eyebrow: #b2452a;
-  --color-muted: #685e54;
-  --color-line: #e8dfd4;
+  --color-muted: #5e5852;
+  --color-line: #e7dfd4;
   --color-gold: #c6a15a;
 }
 
@@ -65,8 +61,6 @@ main .grid > article {
 main img {
   object-position: center;
 }
-
-
 
 @keyframes rise {
   from {
