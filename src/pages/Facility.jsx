@@ -55,7 +55,7 @@ export default function Facility() {
           <p className="mt-4 max-w-3xl text-muted">Six stages, one building, one set of records. Product is identified with its batch at every step, so any finished pack can be traced back to the ingredient lots and the run it came from.</p>
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {stages.map(([n, title, body]) => (
-              <article key={n} className="h-full rounded-3xl border border-line bg-paper p-6">
+              <article key={n} className="h-full rounded-3xl border border-line bg-paper p-6 transition-colors duration-200 hover:border-copper/60">
                 <p className="text-sm font-bold text-copper">{n}</p>
                 <h3 className="mt-2 font-bold">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{body}</p>
@@ -76,7 +76,7 @@ export default function Facility() {
               ["On the floor", "You see the flow from receiving to dispatch, the metal detection and checkweighing points, and the sanitation and zoning setup. Ask to see records, not just equipment."],
               ["Afterwards", "We go through your product, the format you need, the volume you are planning and what a trial run would involve. You leave knowing whether this is a fit."],
             ].map(([title, body]) => (
-              <article key={title} className="h-full rounded-3xl border border-line bg-paper p-6">
+              <article key={title} className="h-full rounded-3xl border border-line bg-paper p-6 transition-colors duration-200 hover:border-copper/60">
                 <h3 className="font-bold">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{body}</p>
               </article>

@@ -32,7 +32,7 @@ export default function Services() {
                 role="tab"
                 aria-selected={tab === service.id}
                 onClick={() => setTab(service.id)}
-                className={`shrink-0 border-b-2 pb-3 text-sm font-semibold ${tab === service.id ? "border-copper text-ink" : "border-transparent text-muted"}`}
+                className={`shrink-0 border-b-2 pb-3 text-sm font-semibold transition-colors duration-200 cursor-pointer ${tab === service.id ? "border-copper text-ink" : "border-transparent text-muted hover:text-ink"}`}
               >
                 {service.tab}
               </button>
@@ -79,7 +79,7 @@ export default function Services() {
               ["One set of records", "Batch records, allergen statements, sanitation checks and shipping records all sit in one place, so tracing a problem does not mean emailing four companies."],
               ["One point of contact", "When something changes, and it will, you are talking to the people who can change all of it, not one link in a chain."],
             ].map(([title, body]) => (
-              <article key={title} className="h-full rounded-3xl border border-white/10 bg-white/5 p-6">
+              <article key={title} className="h-full rounded-3xl border border-white/10 bg-white/5 p-6 transition-colors duration-200 hover:border-white/25">
                 <h3 className="font-bold">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-white/65">{body}</p>
               </article>

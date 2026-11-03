@@ -325,7 +325,7 @@ export default function Home() {
         )}
       </section>
 
-      <section className="bg-[#3a261c] py-16 text-white md:py-20">
+      <section className="bg-espresso py-16 text-white md:py-20">
         <Container>
           <Eyebrow>Machines in action</Eyebrow>
           <h2 className="max-w-xl text-[2.15rem] leading-[1.05] font-extrabold tracking-[-0.03em] md:text-[2.75rem]">See how your product would actually get made.</h2>
@@ -334,7 +334,7 @@ export default function Home() {
           </p>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {featuredClips.map((item) => (
-              <article key={item.id} className="flex h-full flex-col overflow-hidden rounded-[22px] border border-line bg-paper text-ink">
+              <article key={item.id} className="flex h-full flex-col overflow-hidden rounded-[22px] border border-line bg-paper text-ink transition-colors duration-200 hover:border-copper/60">
                 <button type="button" className="block w-full text-left" onClick={() => setClip(item)} aria-label={`Watch ${item.title}`}>
                   <Media image={item.image} alt="" label={item.kicker} play className="h-44 rounded-none" />
                 </button>
@@ -363,7 +363,7 @@ export default function Home() {
                 {[0, 1].map((copy) => (
                   <div className="line-set" key={copy} aria-hidden={copy === 1 || undefined} inert={copy === 1 ? true : undefined}>
                     {certs.map((cert) => (
-                      <article key={`${cert.title}-${copy}`} className="cert-card flex h-full flex-col rounded-[22px] border border-line bg-paper p-5 md:p-6">
+                      <article key={`${cert.title}-${copy}`} className="cert-card flex h-full flex-col rounded-[22px] border border-line bg-paper p-5 md:p-6 transition-colors duration-200 hover:border-copper/60">
                         <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-ink px-1 text-center text-[10px] leading-tight font-bold whitespace-pre-line text-white">{cert.short}</span>
                         <span className="mt-4 h-0.5 w-8 rounded-full bg-copper" aria-hidden="true" />
                         <h3 className="mt-4 text-lg leading-snug font-extrabold tracking-[-0.02em]">{cert.title}</h3>
@@ -470,7 +470,7 @@ export default function Home() {
       <section className="bg-paper px-5 pt-10 pb-16 md:px-8">
         <div className="relative mx-auto flex max-w-[1180px] flex-col items-start justify-between gap-6 overflow-hidden rounded-[28px] px-6 py-8 md:flex-row md:items-center md:px-10">
           <img src="/media/images/cookies-hero.jpg" alt="" className="absolute inset-0 h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-[#3a261c]/88" />
+          <div className="absolute inset-0 bg-espresso/90" />
           <div className="relative max-w-xl">
             <h2 className="text-3xl font-extrabold tracking-[-0.03em] text-white md:text-4xl">Tell us what you want to make.</h2>
             <p className="mt-2 text-sm leading-relaxed text-white/75 md:text-base">

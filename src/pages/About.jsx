@@ -64,7 +64,7 @@ export default function About() {
               ["Nut-free by design", "Keeping peanuts and tree nuts out of the building is a harder commitment than managing them with cleaning and scheduling. It is also the only version a buyer can rely on."],
               ["One building, one set of records", "Baking, packing, storage and dispatch happen on one site under one food safety program. Fewer handoffs means fewer places for your order to stall, and fewer people to chase when it does."],
             ].map(([title, body]) => (
-              <article key={title} className="h-full rounded-3xl border border-line bg-paper p-6">
+              <article key={title} className="h-full rounded-3xl border border-line bg-paper p-6 transition-colors duration-200 hover:border-copper/60">
                 <h3 className="text-lg font-bold">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{body}</p>
               </article>

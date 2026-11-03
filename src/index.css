@@ -4,14 +4,15 @@
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", ui-serif, Georgia, "Times New Roman", serif;
   --color-ink: #14110e;
-  --color-cream: #f6f1ea;
+  --color-espresso: #1f1610;
+  --color-cream: #fbf7f0;
   --color-cream-deep: #f3ece3;
-  --color-paper: #fffcf9;
+  --color-paper: #ffffff;
   --color-copper: #c2512d;
   --color-copper-deep: #a34122;
   --color-eyebrow: #b2452a;
-  --color-muted: #5e5852;
-  --color-line: #e7dfd4;
+  --color-muted: #685e54;
+  --color-line: #e8dfd4;
   --color-gold: #c6a15a;
 }
 
@@ -62,14 +63,7 @@ main img {
   object-position: center;
 }
 
-span[aria-hidden="true"] {
-  display: inline-block;
-  transition: transform 0.2s ease;
-}
 
-.group:hover > span[aria-hidden="true"] {
-  transform: translateX(0.25rem);
-}
 
 @keyframes rise {
   from {

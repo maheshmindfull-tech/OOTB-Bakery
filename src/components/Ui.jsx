@@ -7,7 +7,7 @@ export function Container({ className = "", children }) {
 
 export function Eyebrow({ children, className = "" }) {
   return (
-    <p className={`mb-4 flex items-center gap-3 text-[11px] font-semibold tracking-[0.18em] text-eyebrow uppercase ${className}`}>
+    <p className={`mb-4 flex items-center gap-3 text-[11px] font-bold tracking-[0.18em] text-copper uppercase ${className}`}>
       <span className="h-px w-7 bg-current" />
       {children}
     </p>
@@ -16,13 +16,13 @@ export function Eyebrow({ children, className = "" }) {
 
 const buttonStyles = {
   primary: "bg-copper text-white hover:bg-copper-deep",
-  ghost: "border border-white/30 bg-transparent text-white hover:border-white/60",
-  outline: "border border-ink/12 bg-paper text-ink hover:border-ink/30",
-  dark: "bg-ink text-white hover:bg-black",
+  ghost: "border border-white/30 bg-transparent text-white hover:border-white/60 hover:bg-white/5",
+  outline: "border border-line bg-paper text-ink hover:border-copper/60 hover:text-copper",
+  dark: "bg-ink text-white hover:bg-[#251b14]",
 };
 
 export function Button({ to, href, children, variant = "primary", className = "", type = "button", onClick }) {
-  const cls = `group inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition duration-200 ${buttonStyles[variant]} ${className}`;
+  const cls = `group inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors duration-200 cursor-pointer ${buttonStyles[variant]} ${className}`;
   if (to) return <Link to={to} className={cls}>{children}</Link>;
   if (href) return <a href={href} className={cls}>{children}</a>;
   return (
@@ -34,9 +34,8 @@ export function Button({ to, href, children, variant = "primary", className = ""
 
 export function TextLink({ to, children, className = "" }) {
   return (
-    <Link to={to} className={`group inline-flex items-center gap-1.5 text-sm font-semibold text-copper transition hover:text-copper-deep ${className}`}>
+    <Link to={to} className={`inline-flex items-center gap-1.5 text-sm font-semibold text-copper transition-colors duration-200 hover:text-copper-deep ${className}`}>
       {children}
-      <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">→</span>
     </Link>
   );
 }
@@ -131,8 +130,8 @@ export function Media({ icon = "mixer", label, play = false, image, video, alt =
 export function CtaBand({ eyebrow = "Next step", title, children, actions }) {
   return (
     <section className="bg-cream px-5 py-6 md:px-8 md:py-8">
-      <div className="relative mx-auto max-w-[1180px] overflow-hidden rounded-[28px] bg-ink px-6 py-10 text-white md:px-12 md:py-12">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_82%_18%,rgba(186,78,32,0.55),transparent_42%)]" />
+      <div className="relative mx-auto max-w-[1180px] overflow-hidden rounded-[28px] bg-espresso px-6 py-10 text-white md:px-12 md:py-12 border border-white/5">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_82%_18%,rgba(194,81,45,0.45),transparent_50%)]" />
         <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-xl">
             <Eyebrow>{eyebrow}</Eyebrow>
@@ -175,8 +174,8 @@ export function Pill({ children, active, onClick }) {
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className={`rounded-full px-4 py-2 text-sm font-semibold transition duration-200 ${
-        active ? "bg-ink text-white" : "border border-line bg-paper text-ink hover:border-ink/20"
+      className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200 cursor-pointer ${
+        active ? "bg-ink text-white" : "border border-line bg-paper text-ink hover:border-copper/60 hover:text-copper"
       }`}
     >
       {children}

@@ -49,7 +49,7 @@ export default function Equipment() {
           <p className="mt-4 max-w-2xl text-muted">Machines are listed by what they do rather than by brand, because the control around a machine matters more to your product than the name on it.</p>
           <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {equipmentGroups.map((group) => (
-              <article key={group.n} className="flex h-full flex-col rounded-3xl border border-line bg-paper p-6">
+              <article key={group.n} className="flex h-full flex-col rounded-3xl border border-line bg-paper p-6 transition-colors duration-200 hover:border-copper/60">
                 <p className="text-sm font-bold text-copper">{group.n}</p>
                 <h3 className="mt-1 text-lg font-bold">{group.title}</h3>
                 <ul className="mt-4 divide-y divide-line">
@@ -100,7 +100,7 @@ export default function Equipment() {
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {visible.map((clip) => (
-              <article key={clip.id} id={clip.id} className="flex h-full flex-col overflow-hidden rounded-[22px] border border-line bg-paper">
+              <article key={clip.id} id={clip.id} className="flex h-full flex-col overflow-hidden rounded-[22px] border border-line bg-paper transition-colors duration-200 hover:border-copper/60">
                 <button type="button" className="block w-full text-left" onClick={() => setOpen(clip)}>
                   <Media image={clip.image} alt={clip.title} label={clip.kicker} play className="h-48 rounded-none" />
                 </button>

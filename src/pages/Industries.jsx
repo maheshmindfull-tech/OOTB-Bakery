@@ -13,7 +13,7 @@ export default function Industries() {
       <section className="bg-cream py-16 md:py-20">
         <Container className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {industries.map((item) => (
-            <article key={item.id} id={item.id} className="flex h-full scroll-mt-28 flex-col overflow-hidden rounded-[22px] border border-line bg-paper">
+            <article key={item.id} id={item.id} className="flex h-full scroll-mt-28 flex-col overflow-hidden rounded-[22px] border border-line bg-paper transition-colors duration-200 hover:border-copper/60">
               <Media image={item.image} alt={item.title} className="h-48 rounded-none" />
               <div className="flex flex-1 flex-col p-6">
                 <h2 className="text-xl font-bold">{item.title}</h2>
@@ -43,7 +43,7 @@ export default function Industries() {
               ["A straight answer", "Including when the answer is that we cannot run it, or that something has to change first."],
               ["One building", "Baking, packing, storage and dispatch on one site, so nobody can point at somebody else."],
             ].map(([title, body]) => (
-              <article key={title} className="h-full rounded-3xl border border-white/10 bg-white/5 p-5">
+              <article key={title} className="h-full rounded-3xl border border-white/10 bg-white/5 p-5 transition-colors duration-200 hover:border-white/25">
                 <h3 className="font-bold">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-white/65">{body}</p>
               </article>
